@@ -15,7 +15,7 @@ interface RunData {
 
 
 /**
- * An interface for bot configuratation data.  Should mirror the JSON schema.
+ * An interface for bot config data.  Should mirror the JSON schema.
  */
 interface Config {
   binderUrlSuffix?: string;
