@@ -19,7 +19,6 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@lumino/coreutils": "^1.8.2",
     "ajv": "^8.6.2",
     "probot": "^11.0.1"
   },
