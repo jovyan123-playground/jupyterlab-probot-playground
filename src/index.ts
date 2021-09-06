@@ -1,7 +1,9 @@
 
-import Ajv, {JSONSchemaType} from 'ajv';
+import Ajv from 'ajv';
 
 import * as fs from 'fs';
+
+import { Context, Probot} from "probot";
 
 import { Context, Probot} from "probot";
 
@@ -14,29 +16,16 @@ interface RunData {
 }
 
 
-/**
- * An interface for bot config data.  Should mirror the JSON schema.
- */
-interface Config {
-  binderUrlSuffix?: string;
-  addBinderLink?: boolean;
-}
-
-
-/**
- * Get the parsed config data given a probot context.
- */
-async function getConfig(context: Context<any>): Promise<Config> {
+async function getConfig(context: Context<any>): Promise<JSONObject> {
   const config = await context.config('jupyterlab-probot.yml');
   const ajv = new Ajv({ useDefaults: true });
-  const schema: JSONSchemaType<Config> = require('../schema.json');
-  const validate = ajv.compile(schema);
-  if (validate(config)) {
-    return config;
-  } else {
+  const validate = ajv.compile(require('../schema.json'));
+  let valid = validate(config);
+  if (!valid) {
     console.error(validate.errors);
-    return {};
+    process.exit(1);
   }
+  return config as JSONObject;
 }
 
 
