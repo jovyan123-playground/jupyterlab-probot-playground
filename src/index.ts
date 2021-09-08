@@ -35,6 +35,7 @@ async function getConfig(context: Context<any>): Promise<Config> {
   }
   const ajv = new Ajv({ useDefaults: true });
   const schema: JSONSchemaType<Config> = require('../schema.json');
+  console.log('Using schema', schema);
   const validate = ajv.compile(schema);
   if (validate(config)) {
     return config;
