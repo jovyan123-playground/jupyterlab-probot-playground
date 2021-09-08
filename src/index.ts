@@ -28,6 +28,11 @@ interface Config {
  */
 async function getConfig(context: Context<any>): Promise<Config> {
   const config = await context.config('jupyterlab-probot.yml');
+  console.log(context.repo.name)
+  console.log(config)
+  if (!config) {
+    return {};
+  }
   const ajv = new Ajv({ useDefaults: true });
   const schema: JSONSchemaType<Config> = require('../schema.json');
   const validate = ajv.compile(schema);
