@@ -28,8 +28,8 @@ interface Config {
  */
 async function getConfig(context: Context<any>): Promise<Config> {
   const config = await context.config('jupyterlab-probot.yml');
-  console.log(context.repo.name)
-  console.log(config)
+  console.log(`Got config for ${context.repo.name}:`);
+  console.log(config);
   if (!config) {
     return {};
   }
@@ -72,10 +72,7 @@ export = (app: Probot) => {
       console.log('--------------------------------\n')
       return;
     }
-    const link = `https://mybinder.org/v2/gh/${user}/${repo}/${ref}${urlSuffix}`;
     console.log(`Making binder link for ${repo}`);
-    console.log(link);
-    console.log('--------------------------------\n')
     const comment = `Thanks for making a pull request to ${repo}!
 To try out this branch on [binder](https://mybinder.org), follow this link: [![Binder](https://mybinder.org/badge_logo.svg)](${link})`
     const issueComment = context.issue({ body: comment });
