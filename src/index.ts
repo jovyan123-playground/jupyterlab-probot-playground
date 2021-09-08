@@ -28,7 +28,7 @@ interface Config {
  */
 async function getConfig(context: Context<any>): Promise<Config> {
   const config = await context.config('jupyterlab-probot.yml');
-  console.log(`Got config for ${context.repo.name}:`);
+  console.log(`Got config for ${context.repo().name}:`);
   console.log(config);
   if (!config) {
     return {};
