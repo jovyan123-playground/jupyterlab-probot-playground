@@ -60,7 +60,7 @@ export = (app: Probot) => {
       urlSuffix = config.binderUrlSuffix;
     }
     console.log('\n--------------------------------');
-    console.log('Handling Pull Request Opened');
+    console.log('Handling Pull Request Opened:');
     console.log(`    repo: ${user}/${repo}`);
     console.log(`    ref: ${ref}`);
     console.log(`    config:`);
