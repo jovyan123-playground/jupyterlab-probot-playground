@@ -1,0 +1,38 @@
+{
+  "action": "edited",
+  "changes": {
+    "body": {
+      "from": "@jupyterlab-probot please run pre-commit"
+    }
+  },
+  "issue": {
+    "html_url": "https://github.com/hiimbex/testing-things/pull/76",
+    "number": 76,
+    "title": "Chain publish",
+    "user": {
+      "login": "hiimbex"
+    },
+    "pull_request": {
+      "url": "https://api.github.com/repos/hiimbex/testing-things/pulls/76",
+      "html_url": "https://github.com/hiimbex/testing-things/pull/76"
+    }
+  },
+  "comment": {
+    "user": {
+      "login": "hiimbex"
+    },
+    "body": "@jupyterlab-probot please run pre-commit this"
+  },
+  "repository": {
+    "name": "testing-things",
+    "owner": {
+      "login": "hiimbex"
+    }
+  },
+  "sender": {
+    "login": "hiimbex"
+  },
+  "installation": {
+    "id": 2
+  }
+}
